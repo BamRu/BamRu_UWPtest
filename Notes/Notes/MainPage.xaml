@@ -7,8 +7,38 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    
+    <Page.DataContext>
+        <local:NoteViewModel x:DefaultBindMode="TwoWay"/>
+    </Page.DataContext>
+    
+    
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="661*"/>
+            <RowDefinition Height="59*"/>
+        </Grid.RowDefinitions>
+        <ListView x:Name="listView" ItemsSource="{Binding NotesList, Mode=TwoWay}" ScrollViewer.VerticalScrollBarVisibility="Visible" Margin="10,10,10,10">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value= "Stretch"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="local:Note">
+                    <StackPanel Orientation="Horizontal"  Width="1280">
+                        <TextBlock Text="{Binding Title}" HorizontalAlignment="Left"  FontSize="32" TextWrapping="Wrap" Tapped="TextBlock_Tapped"/>
+                        <!-- <TextBlock Text="{Binding Description}"/> -->
+                        <Button HorizontalAlignment="Right"  
+                                 Click="Button_Click"> Delete
+                        </Button>
+                    </StackPanel>
+                </DataTemplate>
+                
+            </ListView.ItemTemplate>
 
+        </ListView>
+
+        <Button x:Name="CreateButton" Content="Create" HorizontalAlignment="Center" Grid.Row="1" Click="CreateButton_Click" Height="32" Width="61"/>
     </Grid>
 </Page>

@@ -1,0 +1,25 @@
+﻿<Page
+    x:Class="Notes.EditNote"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Notes"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    
+    
+
+    <Grid>
+        <StackPanel                            Margin="0,91,0,254">
+            <TextBlock x:ConnectionId='4' x:Name="textBlock"  Height="39" TextWrapping="Wrap" Text="Заголовок:" Width="174" FontSize="32"/>
+            <TextBox x:ConnectionId='5' x:Name="textBoxDescrition" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding Title}" Height="40" Width="1108" Margin="0,0,0,20"/>
+            <TextBlock x:ConnectionId='6' x:Name="textBlock1"  Height="39" TextWrapping="Wrap" Text="Текст заметки:" VerticalAlignment="Top" Width="161" FontSize="24"/>
+            <TextBox x:ConnectionId='7' x:Name="textBoxTitle" Height="226"  TextWrapping="Wrap" Text="{Binding Description}" Width="1108"/>
+        </StackPanel>
+        <Button x:ConnectionId='2' x:Name="button" Content="Save" Height="31"  HorizontalAlignment="Center" VerticalAlignment="Top" Width="65"                      Margin="0,542,0,0" />
+        <Button x:ConnectionId='3' x:Name="button1" Content="x" Height="38" Margin="1189,48,0,0" VerticalAlignment="Top" Width="42"                      />
+
+    </Grid>
+</Page>
+
